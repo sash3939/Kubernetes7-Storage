@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-test
+  namespace: default
+  labels:
+    app: dep-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dep-test
+  template:
+    metadata:
+      labels:
+        app: dep-test
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'while true; do echo Hello world! >> /output/output.txt; sleep 5; done']
+        volumeMounts:
+        - name: pv-test
+          mountPath: /output
+      - name: multitool
+        image: wbitt/network-multitool:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: HTTP_PORT
+          value: "80"
+        volumeMounts:
+        - name: pv-test
+          mountPath: /input
+      volumes:
+      - name: pv-test
+        persistentVolumeClaim:
+          claimName: pvc-test
