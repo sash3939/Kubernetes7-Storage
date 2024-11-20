@@ -174,15 +174,23 @@ mount -t nfs 192.168.43.233:/nfs-share /mnt
 
 2. Создать Deployment приложения состоящего из multitool, и подключить к нему PV, созданный автоматически на сервере NFS.
 
+<img width="677" alt="pvc-nfs" src="https://github.com/user-attachments/assets/0474068c-36c9-46a4-9460-da9bc9b88698">
 
+<img width="719" alt="all, pv,pvc,deployment" src="https://github.com/user-attachments/assets/2eb10a84-a8e3-438a-9f66-2e5d003640b2">
 
 3. Продемонстрировать возможность чтения и записи файла изнутри пода. 
 
+<img width="526" alt="before check" src="https://github.com/user-attachments/assets/402e3091-7b2c-46af-a129-64af4d4d490e">
 
+<img width="576" alt="write to share in pod" src="https://github.com/user-attachments/assets/a76c406b-f53b-4bfa-8a1d-fe9cd6a4d95c">
+
+<img width="585" alt="after check" src="https://github.com/user-attachments/assets/785d003f-52fb-427d-b07a-6ae77b68f222">
 
 4. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
-
+[deployment-nfs.yaml](https://github.com/sash3939/Kubernetes7-Storage/blob/main/deployment-nfs.yaml)
+[pvc-nfs.yaml](https://github.com/sash3939/Kubernetes7-Storage/blob/main/pvc-nfs.yaml)
+[sc.yaml](https://github.com/sash3939/Kubernetes7-Storage/blob/main/sc.yaml)
 
 ------
 
